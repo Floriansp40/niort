@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 /*** ROUTAGE PRINCIPAL */
-app.get('/', (req, res) => res.send(`Good job welcome to "Tant pis" spirit`))
+app.get('/', (req, res) => res.send(`Good job welcome to "Tant pis" spirit `))
 
 app.post('/user', (req, res) => res.status(201).send(`User added`))
 
