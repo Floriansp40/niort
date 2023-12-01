@@ -51,7 +51,7 @@ jobs:
             - name: Start API
               run: npm run start
 
-    docker-deploy:
-        if: ${{ contains(github.event.head_commit.message, '#docker')}}
-        needs: [route]
-        runs-on: ubuntu-latest
+    # docker-deploy:
+    #     if: ${{ contains(github.event.head_commit.message, '#docker')}}
+    #     needs: [route]
+    #     runs-on: ubuntu-latest
