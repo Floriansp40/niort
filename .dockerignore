@@ -1,0 +1,4 @@
+node_modules
+.github
+pm2.config.js
+test
