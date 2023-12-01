@@ -33,3 +33,25 @@ jobs:
               run: npm ci
             - name: Route test
               run: npm run test
+
+    deploy:
+        if: ${{ contains(github.event.head_commit.message, '#deploy')}}
+        needs: [route]
+        runs-on: self-hosted
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18.x
+            - name: Install Dependancies
+              run: npm ci
+            - name: Start API
+              run: npm run start
+
+    docker-deploy:
+        if: ${{ contains(github.event.head_commit.message, '#docker')}}
+        needs: [route]
+        runs-on: ubuntu-latest
